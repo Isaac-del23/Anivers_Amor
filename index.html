@@ -29,11 +29,13 @@
       font-size: 1.2em;
       max-width: 600px;
       margin: 20px auto;
+      line-height: 1.6;
       opacity: 0;
       animation: fadeIn 3s ease forwards;
       animation-delay: 1s;
     }
 
+    /* GALERIA */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -50,6 +52,17 @@
 
     .gallery img:hover {
       transform: scale(1.05);
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      margin: 5px;
+      background: white;
+      color: #ff758c;
+      font-weight: bold;
+      cursor: pointer;
     }
 
     footer {
@@ -73,15 +86,12 @@
       position: fixed;
       width: 10px;
       height: 10px;
-      background: white;
       top: -10px;
       animation: fall linear infinite;
     }
 
     @keyframes fall {
-      to {
-        transform: translateY(100vh);
-      }
+      to { transform: translateY(100vh); }
     }
 
     /* Tela de senha */
@@ -105,16 +115,6 @@
       border-radius: 10px;
       margin-top: 10px;
     }
-
-    button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 10px;
-      margin-top: 10px;
-      background: white;
-      color: #ff758c;
-      font-weight: bold;
-    }
   </style>
 </head>
 <body>
@@ -130,19 +130,26 @@
   <h1>Feliz Aniversário, Meu Amor ❤️</h1>
 
   <p>
-    Hoje é o seu dia, e eu só quero te lembrar o quanto você é especial pra mim.
-    Você ilumina minha vida de um jeito único.
-    Que seu dia seja cheio de amor, alegria e momentos incríveis.
-    Eu te amo mais do que palavras podem dizer! 💖
+    Hoje é um dia muito especial, porque é o dia da pessoa que faz o meu mundo mais bonito.
+
+    Ter você na minha vida é um presente que eu agradeço todos os dias. Seu sorriso, seu jeito e tudo em você me fazem mais feliz do que eu consigo explicar
+
+    Você é a razão de tantos momentos incríveis, e ao seu lado eu aprendi o verdadeiro significado de amar.<br>
+
+    Que seu novo ano seja cheio de alegria, conquistas e sonhos realizados. Eu quero estar com você em cada passo, em cada vitória e em cada momento da sua vida.<br>
+
+    Nunca esqueça o quanto você é importante pra mim.<br>
+
+    Eu te amo infinitamente ❤️💖
   </p>
 
+  <!-- GALERIA -->
   <div class="gallery">
-    <img src="/Anivers_Amor/foto1.jpeg">
-    <img src="/Anivers_Amor/foto2.jpeg">
-    <img src="/Anivers_Amor/foto3.jpeg">
-    <img src="/Anivers_Amor/foto4.jpeg">
-    <img src="/Anivers_Amor/foto5.jpeg">
-    <img src="/Anivers_Amor/foto3.jpeg">
+    <img src="foto1.jpeg">
+    <img src="foto2.jpeg">
+    <img src="foto3.jpeg">
+    <img src="foto4.jpeg">
+    <img src="foto5.jpeg">
   </div>
 
   <footer>
@@ -152,14 +159,14 @@
 
 <!-- Música -->
 <audio id="musica" loop>
-  <source src="/Anivers_Amor/luan-santana-incondicional-registro-historico-luan-santana-youtube_bgzdoPXd.mp3" type="audio/mpeg">
+  <source src="luan-santana-incondicional-registro-historico-luan-santana-youtube_bgzdoPXd.mp3" type="audio/mpeg">
 </audio>
 
 <script>
   function verificarSenha() {
     var senha = document.getElementById('senha').value;
 
-    if (senha === "06042023") { // MUDE A SENHA AQUI
+    if (senha === "06042023") {
       document.getElementById('lockScreen').style.display = 'none';
       document.getElementById('conteudo').style.display = 'block';
       document.getElementById('musica').play();
@@ -179,6 +186,8 @@
       document.body.appendChild(confete);
     }
   }
+
+  
 </script>
 
 </body>
