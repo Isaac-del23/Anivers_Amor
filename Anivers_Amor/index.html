@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feliz Aniversário ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #ff758c, #ff7eb3);
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    .container {
+      padding: 20px;
+      animation: fadeIn 2s ease-in;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      animation: slideDown 1.5s ease;
+    }
+
+    p {
+      font-size: 1.2em;
+      max-width: 600px;
+      margin: 20px auto;
+      opacity: 0;
+      animation: fadeIn 3s ease forwards;
+      animation-delay: 1s;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+      transition: transform 0.3s;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    footer {
+      margin-top: 20px;
+      font-size: 0.9em;
+      opacity: 0.8;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Confete */
+    .confetti {
+      position: fixed;
+      width: 10px;
+      height: 10px;
+      background: white;
+      top: -10px;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(100vh);
+      }
+    }
+
+    /* Tela de senha */
+    #lockScreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #ff758c;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 999;
+    }
+
+    input {
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      margin-top: 10px;
+      background: white;
+      color: #ff758c;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Tela de senha -->
+<div id="lockScreen">
+  <h2>Digite a senha 💖</h2>
+  <input type="password" id="senha" placeholder="Senha">
+  <button onclick="verificarSenha()">Entrar</button>
+</div>
+
+<div class="container" id="conteudo" style="display:none;">
+  <h1>Feliz Aniversário, Meu Amor ❤️</h1>
+
+  <p>
+    Hoje é o seu dia, e eu só quero te lembrar o quanto você é especial pra mim.
+    Você ilumina minha vida de um jeito único.
+    Que seu dia seja cheio de amor, alegria e momentos incríveis.
+    Eu te amo mais do que palavras podem dizer! 💖
+  </p>
+
+  <div class="gallery">
+    <img src="/Anivers_Amor/foto1.jpeg">
+    <img src="/Anivers_Amor/foto2.jpeg">
+    <img src="/Anivers_Amor/foto3.jpeg">
+    <img src="/Anivers_Amor/foto4.jpeg">
+    <img src="/Anivers_Amor/foto5.jpeg">
+    <img src="/Anivers_Amor/foto3.jpeg">
+  </div>
+
+  <footer>
+    Feito com muito amor ❤️
+  </footer>
+</div>
+
+<!-- Música -->
+<audio id="musica" loop>
+  <source src="/Anivers_Amor/luan-santana-incondicional-registro-historico-luan-santana-youtube_bgzdoPXd.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  function verificarSenha() {
+    var senha = document.getElementById('senha').value;
+
+    if (senha === "06042023") { // MUDE A SENHA AQUI
+      document.getElementById('lockScreen').style.display = 'none';
+      document.getElementById('conteudo').style.display = 'block';
+      document.getElementById('musica').play();
+      criarConfete();
+    } else {
+      alert("Senha incorreta 😢");
+    }
+  }
+
+  function criarConfete() {
+    for (let i = 0; i < 50; i++) {
+      let confete = document.createElement('div');
+      confete.classList.add('confetti');
+      confete.style.left = Math.random() * 100 + 'vw';
+      confete.style.animationDuration = (Math.random() * 3 + 2) + 's';
+      confete.style.backgroundColor = `hsl(${Math.random()*360},100%,50%)`;
+      document.body.appendChild(confete);
+    }
+  }
+</script>
+
+</body>
+</html>
